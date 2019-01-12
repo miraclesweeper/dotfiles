@@ -1,1 +1,1 @@
-sh <(curl -L gitlab.com/miraclesweeper/dotfiles/raw/master/install.sh)
+sh <(curl -L https://raw.githubusercontent.com/miraclesweeper/dotfiles/master/install.sh)

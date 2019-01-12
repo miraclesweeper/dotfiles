@@ -56,7 +56,7 @@ if [ -d $LOCAL_REPOSITORY ]; then
   done
 fi
 
-git clone https://gitlab.com/miraclesweeper/dotfiles.git $LOCAL_REPOSITORY
+git clone https://github.com/miraclesweeper/dotfiles.git $LOCAL_REPOSITORY
 if [ ! -d $LOCAL_REPOSITORY ]; then
   abort "Could not download remote repository."
 fi
