@@ -1,6 +1,7 @@
 #!/bin/sh
 
-LOCAL_REPOSITORY=$HOME/Dotfiles
+LOCAL_REPOSITORY_PATH=$HOME/Dotfiles
+REMOTE_REPOSITORY_URL=https://github.com/miraclesweeper/dotfiles.git
 
 abort() {
   echo $1
@@ -10,7 +11,7 @@ abort() {
 getManagedDotfiles() {
   result=()
 
-  cd $LOCAL_REPOSITORY
+  cd $LOCAL_REPOSITORY_PATH
   for file in .??*; do
     if [ -f $file ]; then
       case $file in
@@ -26,8 +27,8 @@ getManagedDotfiles() {
   echo ${result[@]}
 }
 
-if [ -d $LOCAL_REPOSITORY ]; then
-  echo "$LOCAL_REPOSITORY already exists. Replace it? [y]es, [n]o:"
+if [ -d $LOCAL_REPOSITORY_PATH ]; then
+  echo "$LOCAL_REPOSITORY_PATH already exists. Replace it? [y]es, [n]o:"
 
   while true
   do
@@ -42,7 +43,7 @@ if [ -d $LOCAL_REPOSITORY ]; then
         done
 
         cd
-        rm -fr $LOCAL_REPOSITORY
+        rm -fr $LOCAL_REPOSITORY_PATH
 
         break
         ;;
@@ -56,14 +57,14 @@ if [ -d $LOCAL_REPOSITORY ]; then
   done
 fi
 
-git clone https://github.com/miraclesweeper/dotfiles.git $LOCAL_REPOSITORY
-if [ ! -d $LOCAL_REPOSITORY ]; then
+git clone $REMOTE_REPOSITORY_URL $LOCAL_REPOSITORY_PATH
+if [ ! -d $LOCAL_REPOSITORY_PATH ]; then
   abort "Could not download remote repository."
 fi
 
 files=($(getManagedDotfiles))
 for file in ${files[@]}; do
-  ln -fs $LOCAL_REPOSITORY/$file $HOME/$file
+  ln -fs $LOCAL_REPOSITORY_PATH/$file $HOME/$file
 done
 
 echo "Installation was successful."
