@@ -20,7 +20,7 @@ set encoding=utf-8
 set number
 
 " Set the vertical rulers.
-set colorcolumn=80
+set colorcolumn=100
 
 " Enable extended command line completion.
 set wildmenu
