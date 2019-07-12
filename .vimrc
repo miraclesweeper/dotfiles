@@ -42,11 +42,11 @@ set expandtab
 
 " Set the number of space characters that will be inserted when tab key is
 " pressed.
-set softtabstop=4
+set softtabstop=2
 
 " Set the number of space characters that will be inserted at the time of the
 " automatic indentation.
-set shiftwidth=4
+set shiftwidth=2
 
 " Automatically inserts one extra level of indentation in some cases.
 set smartindent
