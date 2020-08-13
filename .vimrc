@@ -108,10 +108,6 @@ let airline_left_sep=''
 let airline_right_sep=''
 let airline#extensions#tabline#enabled=1
 
-" Let Vundle manage Kotlin support.
-Plugin'udalov/kotlin-vim'
-au BufRead *.kt set filetype=kotlin
-
 " Let Vundle manage Swift syntax.
 Plugin'apple/swift',{'rtp':'utils/vim','name':'swift-syntax'}
 au BufRead *.swift set filetype=swift
