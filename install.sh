@@ -28,13 +28,13 @@ getManagedDotfiles() {
 }
 
 if [ -d $LOCAL_REPOSITORY ]; then
-  echo "$LOCAL_REPOSITORY already exists. Replace it? [y]es, [n]o:"
+  echo "$LOCAL_REPOSITORY already exists. Do you want to replace it?"
 
   while true
   do
     read response
     case $response in
-      y)
+      yes)
         files=($(getManagedDotfiles))
         for file in ${files[@]}; do
           if [ -f $HOME/$file ]; then
@@ -47,11 +47,8 @@ if [ -d $LOCAL_REPOSITORY ]; then
 
         break
         ;;
-      n)
-        abort "Installation has been canceled."
-        ;;
       *)
-        echo "Invalid response."
+        abort "Installation canceled."
         ;;
     esac
   done
@@ -59,7 +56,7 @@ fi
 
 git clone $REMOTE_REPOSITORY $LOCAL_REPOSITORY
 if [ ! -d $LOCAL_REPOSITORY ]; then
-  abort "Could not download remote repository."
+  abort "Couldn't download remote repository."
 fi
 
 files=($(getManagedDotfiles))
@@ -67,4 +64,4 @@ for file in ${files[@]}; do
   ln -fs $LOCAL_REPOSITORY/$file $HOME/$file
 done
 
-echo "Installation was successful."
+echo "Installation successful."
