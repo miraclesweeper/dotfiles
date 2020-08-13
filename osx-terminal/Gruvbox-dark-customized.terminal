@@ -207,11 +207,11 @@
 	<key>ShowComponentsWhenTabHasCustomTitle</key>
 	<false/>
 	<key>ShowDimensionsInTitle</key>
-	<true/>
+	<false/>
 	<key>ShowRepresentedURLInTitle</key>
 	<true/>
 	<key>ShowRepresentedURLPathInTitle</key>
-	<false/>
+	<true/>
 	<key>ShowShellCommandInTitle</key>
 	<false/>
 	<key>ShowTTYNameInTitle</key>
@@ -241,7 +241,7 @@
 	<key>UseBrightBold</key>
 	<true/>
 	<key>name</key>
-	<string>Gruvbox-dark</string>
+	<string>Gruvbox-dark-customized</string>
 	<key>noWarnProcesses</key>
 	<array/>
 	<key>shellExitAction</key>
